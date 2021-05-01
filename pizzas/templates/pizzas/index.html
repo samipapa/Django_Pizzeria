@@ -1,0 +1,17 @@
+<body style="background-color: wheat;"></body>
+
+
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+
+<p>Pizzas</p>
+
+<p>Look at pizzas, add and edit toppings, and create your own pizza!</p>
+
+<p>
+    {% load static %} <img src="{% static 'pizzas/media/home_page.jpg' %}" alt="index" />
+</p>
+
+{% endblock content %}
