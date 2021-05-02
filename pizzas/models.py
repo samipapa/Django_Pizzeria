@@ -29,7 +29,7 @@ class Comment(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name_plural = "Comments"

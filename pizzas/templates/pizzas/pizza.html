@@ -1,3 +1,4 @@
+<body style="background-color: wheat;"></body>
 {% extends "pizzas/base.html" %}
 
 {% block content %}
@@ -6,48 +7,39 @@
 
 Pizza: {{ pizza }}
 
+
 <ul>
     {% for topping in toppings %}
     <li>
 
         <p>{{topping.date_added|date:"M d, Y H:i" }} </p>
         <p>{{topping.text | linebreaks }} </p>
+
     <li>
-        <p>
-            <a href="{% url 'pizzas:edit_topping' topping.id %}">Edit toppings</a>
-        </p>
+
         {% empty %}
     <li> There are no more toppings for this pizza yet.</li>
     {% endfor %}
+
+    {% for comment in comments %}
+    <li>
+
+        <p>{{comment.date_added|date:"M d, Y H:i" }} </p>
+        <p>{{comment.text | linebreaks }} </p>
+    <li>
+        <p>
+            <a href="{% url 'pizzas:edit_comment' comment.id %}">Edit comments</a>
+        </p>
+        {% empty %}
+
+
+    <li> There are no comments for this pizza yet.</li>
+    {% endfor %}
     <ul>
         <p>
-            <a href="{% url 'pizzas:new_topping' pizza.id %}"> Add new topping</a>
+            <a href="{% url 'pizzas:new_comment' pizza.id %}"> Add new comment</a>
         </p>
 
 
 
-
-
-        <ul>
-            {% for comment in comments %}
-            <li>
-
-                <p>{{comment.date_added|date:"M d, Y H:i" }} </p>
-                <p>{{comment.text | linebreaks }} </p>
-            <li>
-                <p>
-                    <a href="{% url 'pizzas:edit_comment' comment.id %}">Edit comments</a>
-                </p>
-                {% empty %}
-
-
-            <li> There are no comments for this pizza yet.</li>
-            {% endfor %}
-            <ul>
-                <p>
-                    <a href="{% url 'pizzas:new_comment' pizza.id %}"> Add new comment</a>
-                </p>
-
-
-
-                {% endblock content %}
+        {% endblock content %}

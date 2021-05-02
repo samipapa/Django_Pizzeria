@@ -1,3 +1,5 @@
+<body style="background-color: wheat;"></body>
+
 {% extends "pizzas/base.html" %}
 
 {% block content %}
@@ -12,11 +14,20 @@
     {% empty %}
     <li> No pizzas have been added yet. </li>
 
+
+
     {% endfor %}
+
+    <p>
+        {% load static %} <img src="{% static 'pizzas/media/hp.jpg' %}" alt="Hawaiian" />
+    </p>
+    <p>
+        {% load static %} <img src="{% static 'pizzas/media/ml.jpg' %}" alt="Meat Lovers" />
+    </p>
 
 </ul>
 
 
-<a href="{% url 'pizzas:new_pizza' %}"> Add a new pizza</a>
+
 
 {% endblock content %}

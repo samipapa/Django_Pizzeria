@@ -1,5 +1,5 @@
 <p>
-    <a href="{% url 'pizzas:index' %}">Pizzeria</a>
+    <a href="{% url 'pizzas:index' %}">Pizzeria Home Page</a>
     <a href="{% url 'pizzas:pizzas' %}">Available Pizzas</a>
     {% if user.is_authenticated %}
     Hello, {{ user.username }}.
