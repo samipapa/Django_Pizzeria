@@ -46,7 +46,7 @@ def new_comment(request, pizza_id):
 
             return redirect("pizzas:pizza", pizza_id=pizza_id)
 
-    context = {"form": form, "pizza": pizza}
+    context = {"pizza": pizza, "form": form}
     return render(request, "pizzas/new_comment.html", context)
 
 
